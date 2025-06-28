@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerPath Pro - Find Your Dream Career</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            color: white;
+        }
+        
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .login-container {
+            background: rgba(44, 62, 80, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateY(0);
+            transition: all 0.5s;
+        }
+        
+        .login-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            height: 50px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+            color: white;
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .btn-login {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .input-group-text {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .invalid-feedback {
+            display: none;
+            color: #ff6b6b;
+            font-size: 0.85rem;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+        
+        .form-control.is-invalid {
+            border-color: #ff6b6b;
+            background-image: none;
+        }
+        
+        .form-control.is-valid {
+            border-color: var(--secondary-color);
+            background-image: none;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @media (max-width: 576px) {
+            .login-container {
+                padding: 30px 20px;
+                margin: 0 15px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+
+
+         :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --dark-color: #1a1a2e;
+            --darker-color: #16213e;
+            --card-bg: #0f3460;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-color);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Floating background elements */
+        .floating-bg {
+            position: fixed;
+            border-radius: 50%;
+            background: rgba(52, 152, 219, 0.1);
+            filter: blur(60px);
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        #bg1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+        }
+
+        #bg2 {
+            width: 400px;
+            height: 400px;
+            top: 60%;
+            left: 70%;
+            animation-delay: 2s;
+        }
+
+        #bg3 {
+            width: 200px;
+            height: 200px;
+            top: 30%;
+            left: 80%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Page container */
+        .page-container {
+            padding: 80px 20px 40px;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .navbar {
+            background-color: rgba(26, 26, 46, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.5rem;
+        }
+
+        /* Quiz section */
+        .quiz-container {
+            background: rgba(15, 52, 96, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .quiz-header h1 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, white, var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .quiz-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .progress-container {
+            margin: 30px 0;
+        }
+
+        .progress {
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.5s ease;
+        }
+
+        /* Quiz options */
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quiz-option:hover {
+            background: rgba(52, 152, 219, 0.1);
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .quiz-option.selected {
+            background: rgba(46, 204, 113, 0.1);
+            border-color: var(--secondary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .quiz-option i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        /* Navigation buttons */
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .btn-quiz {
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-next {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+        }
+
+        .btn-next:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-prev {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .btn-prev:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        /* Results page */
+        .results-container {
+            display: none;
+        }
+
+        .career-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            transition: all 0.4s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .career-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .career-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 25px;
+            text-align: center;
+        }
+
+        .career-header h3 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .career-body {
+            padding: 25px;
+        }
+
+        .career-body p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .btn-roadmap {
+            background: transparent;
+            border: 1px solid var(--secondary-color);
+            color: var(--secondary-color);
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-roadmap:hover {
+            background: rgba(46, 204, 113, 0.1);
+        }
+
+        /* Roadmap section */
+        .roadmap-container {
+            display: none;
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-top: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .roadmap-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .roadmap-header h2 {
+            font-weight: 600;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .roadmap-step {
+            display: flex;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .roadmap-step:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .step-content p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0;
+        }
+
+        .resources-container {
+            margin-top: 40px;
+        }
+
+        .resource-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+
+        .resource-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .resource-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .resource-content h5 {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .resource-content p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .resource-link {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .resource-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .quiz-header h1 {
+                font-size: 2rem;
+            }
+            
+            .quiz-container {
+                padding: 20px;
+            }
+            
+            .quiz-navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-quiz {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <div class="container">
+            <div class="login-container floating">
+                <h1 class="title">CareerPath Pro</h1>
+                <form id="loginForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                                <div class="invalid-feedback" id="firstNameError">Please enter alphabets only (A-Z, a-z)</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                                <div class="invalid-feedback" id="lastNameError">Please enter alphabets only (A-Z, a-z)</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                            <input type="text" class="form-control" id="mobileNumber" placeholder="Mobile Number" maxlength="10" required>
+                        </div>
+                        <div class="invalid-feedback" id="mobileError">Please enter a valid 10-digit mobile number</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="invalid-feedback" id="emailError">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            <input type="password" class="form-control" id="password" placeholder="Password" maxlength="10" required>
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="invalid-feedback" id="passwordError">
+                            Password must contain: uppercase (A-Z), lowercase (a-z), number (0-9), and special character
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-login">Signup<i class="fas fa-arrow-right ms-2"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+     <div class="floating-bg" id="bg1"></div>
+    <div class="floating-bg" id="bg2"></div>
+    <div class="floating-bg" id="bg3"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">CareerPath Pro</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" id="quizLink">Career Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="resultsLink">Results</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container page-container">
+        <!-- Quiz Section -->
+        <div id="quizSection">
+            <div class="quiz-header">
+                <h1>Career Assessment Quiz</h1>
+                <p>Answer a few questions to discover career paths that match your interests, skills, and education background.</p>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress">
+                    <div class="progress-bar" id="quizProgress" role="progressbar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="quiz-container">
+                <!-- Interests Section -->
+                <div class="quiz-step active" id="interestsStep">
+                    <h2 class="mb-4">What are your main interests?</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="quiz-option" data-value="technology">
+                                <i class="fas fa-laptop-code"></i>
+                                <div>
+                                    <h4>Technology</h4>
+                                    <p class="mb-0">Computers, programming, AI, gadgets</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quiz-option" data-value="health">
+                                <i class="fas fa-heartbeat"></i>
+                                <div>
+                                    <h4>Health & Medicine</h4>
+                                    <p class="mb-0">Healthcare, biology, helping people</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quiz-option" data-value="business">
+                                <i class="fas fa-briefcase"></i>
+                                <div>
+                                    <h4>Business</h4>
+                                    <p class="mb-0">Entrepreneurship, management, finance</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quiz-option" data-value="arts">
+                                <i class="fas fa-palette"></i>
+                                <div>
+                                    <h4>Arts & Creativity</h4>
+                                    <p class="mb-0">Design, writing, music, visual arts</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz-navigation">
+                        <button class="btn btn-next" id="nextInterests">Next <i class="fas fa-arrow-right ms-2"></i></button>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="quiz-step" id="skillsStep">
+                    <h2 class="mb-4">What are your strongest skills?</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="quiz-option" data-value="problem-solving">
+                                <i class="fas fa-lightbulb"></i>
+                                <div>
+                                    <h4>Problem Solving</h4>
+                                    <p class="mb-0">Analyzing and solving complex problems</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quiz-option" data-value="communication">
+                                <i class="fas fa-comments"></i>
+                                <div>
+                                    <h4>Communication</h4>
+                                    <p class="mb-0">Expressing ideas clearly and effectively</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quiz-option" data-value="technical">
+                                <i class="fas fa-cogs"></i>
+                                <div>
+                                    <h4>Technical Skills</h4>
+                                    <p class="mb-0">Working with technology and tools</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quiz-option" data-value="creativity">
+                                <i class="fas fa-magic"></i>
+                                <div>
+                                    <h4>Creativity</h4>
+                                    <p class="mb-0">Thinking outside the box</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz-navigation">
+                        <button class="btn btn-prev" id="prevSkills"><i class="fas fa-arrow-left me-2"></i> Back</button>
+                        <button class="btn btn-next" id="nextSkills">Next <i class="fas fa-arrow-right ms-2"></i></button>
+                    </div>
+                </div>
+
+                <!-- Education Section -->
+                <div class="quiz-step" id="educationStep">
+                    <h2 class="mb-4">What is your education background?</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="quiz-option" data-value="high-school">
+                                <i class="fas fa-school"></i>
+                                <div>
+                                    <h4>High School</h4>
+                                    <p class="mb-0">Currently in or completed high school</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quiz-option" data-value="bachelor">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>
+                                    <h4>Bachelor's Degree</h4>
+                                    <p class="mb-0">Completed or pursuing undergraduate degree</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quiz-option" data-value="master">
+                                <i class="fas fa-user-graduate"></i>
+                                <div>
+                                    <h4>Master's Degree</h4>
+                                    <p class="mb-0">Completed or pursuing graduate degree</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quiz-option" data-value="phd">
+                                <i class="fas fa-atom"></i>
+                                <div>
+                                    <h4>PhD or Higher</h4>
+                                    <p class="mb-0">Completed or pursuing doctoral degree</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz-navigation">
+                        <button class="btn btn-prev" id="prevEducation"><i class="fas fa-arrow-left me-2"></i> Back</button>
+                        <button class="btn btn-next" id="submitQuiz">Get Results <i class="fas fa-chart-line ms-2"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-container" id="resultsSection">
+            <div class="quiz-header">
+                <h1>Your Career Recommendations</h1>
+                <p>Based on your quiz answers, here are some career paths that might be a good fit for you.</p>
+            </div>
+
+            <div class="row" id="careerResults">
+                <!-- Career cards will be inserted here -->
+            </div>
+
+            <div class="roadmap-container" id="roadmapSection">
+                <!-- Roadmap will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            const firstName = document.getElementById('firstName');
+            const firstNameError = document.getElementById('firstNameError');
+            const lastName = document.getElementById('lastName');
+            const lastNameError = document.getElementById('lastNameError');
+            const mobileNumber = document.getElementById('mobileNumber');
+            const mobileError = document.getElementById('mobileError');
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const password = document.getElementById('password');
+            const passwordError = document.getElementById('passwordError');
+            const togglePassword = document.getElementById('togglePassword');
+            
+            // Toggle password visibility
+            togglePassword.addEventListener('click', function() {
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                password.setAttribute('type', type);
+                this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+            });
+            
+            // Allow only alphabets in first name
+            firstName.addEventListener('input', function() {
+                this.value = this.value.replace(/[^A-Za-z]/g, '');
+            });
+            
+            // Allow only alphabets and spaces in last name
+            lastName.addEventListener('input', function() {
+                this.value = this.value.replace(/[^A-Za-z ]/g, '');
+            });
+            
+            // Mobile number validation (only digits)
+            mobileNumber.addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
+            
+            // Form validation
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                let isValid = true;
+                
+                // Validate first name (only alphabets)
+                if (!/^[A-Za-z]+$/.test(firstName.value)) {
+                    firstName.classList.add('is-invalid');
+                    firstNameError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    firstName.classList.remove('is-invalid');
+                    firstName.classList.add('is-valid');
+                    firstNameError.style.display = 'none';
+                }
+                
+                // Validate last name (only alphabets and spaces)
+                if (!/^[A-Za-z ]+$/.test(lastName.value)) {
+                    lastName.classList.add('is-invalid');
+                    lastNameError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    lastName.classList.remove('is-invalid');
+                    lastName.classList.add('is-valid');
+                    lastNameError.style.display = 'none';
+                }
+                
+                // Validate mobile number (exactly 10 digits)
+                if (mobileNumber.value.length !== 10 || !/^\d{10}$/.test(mobileNumber.value)) {
+                    mobileNumber.classList.add('is-invalid');
+                    mobileError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    mobileNumber.classList.remove('is-invalid');
+                    mobileNumber.classList.add('is-valid');
+                    mobileError.style.display = 'none';
+                }
+                
+                // Validate email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email.value)) {
+                    email.classList.add('is-invalid');
+                    emailError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    email.classList.remove('is-invalid');
+                    email.classList.add('is-valid');
+                    emailError.style.display = 'none';
+                }
+                
+                // Validate password
+                const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{1,10}$/;
+                if (!passwordRegex.test(password.value)) {
+                    password.classList.add('is-invalid');
+                    passwordError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    password.classList.remove('is-invalid');
+                    password.classList.add('is-valid');
+                    passwordError.style.display = 'none';
+                }
+                
+                // If all valid, submit the form
+                if (isValid) {
+                    // alert('Registration successful!');
+                    // In a real app, you would send the data to your server here
+                    // loginForm.submit();
+                    // window.location = "index.html";
+                    let btnlogin = document.querySelector(".btn-login");
+                    btnlogin.addEventListener("click",function(){
+                        //alert('Registration successful!');
+                        window.location = "index.html";
+                    });
+                }
+            });
+            
+            // Real-time validation for better UX
+            firstName.addEventListener('blur', function() {
+                if (!/^[A-Za-z]+$/.test(this.value)) {
+                    this.classList.add('is-invalid');
+                    firstNameError.style.display = 'block';
+                } else {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                    firstNameError.style.display = 'none';
+                }
+            });
+            
+            lastName.addEventListener('blur', function() {
+                if (!/^[A-Za-z ]+$/.test(this.value)) {
+                    this.classList.add('is-invalid');
+                    lastNameError.style.display = 'block';
+                } else {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                    lastNameError.style.display = 'none';
+                }
+            });
+            
+            mobileNumber.addEventListener('blur', function() {
+                if (this.value.length !== 10 || !/^\d{10}$/.test(this.value)) {
+                    this.classList.add('is-invalid');
+                    mobileError.style.display = 'block';
+                } else {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                    mobileError.style.display = 'none';
+                }
+            });
+            
+            email.addEventListener('blur', function() {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(this.value)) {
+                    this.classList.add('is-invalid');
+                    emailError.style.display = 'block';
+                } else {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                    emailError.style.display = 'none';
+                }
+            });
+            
+            password.addEventListener('blur', function() {
+                const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{1,10}$/;
+                if (!passwordRegex.test(this.value)) {
+                    this.classList.add('is-invalid');
+                    passwordError.style.display = 'block';
+                } else {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                    passwordError.style.display = 'none';
+                }
+            });
+            
+            // Prevent form submission on Enter key for better UX
+            loginForm.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && e.target.tagName !== 'BUTTON') {
+                    e.preventDefault();
+                }
+            });
+        });
+
+
+
+         document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const quizSection = document.getElementById('quizSection');
+            const resultsSection = document.getElementById('resultsSection');
+            const quizLink = document.getElementById('quizLink');
+            const resultsLink = document.getElementById('resultsLink');
+            const quizSteps = document.querySelectorAll('.quiz-step');
+            const quizOptions = document.querySelectorAll('.quiz-option');
+            const progressBar = document.getElementById('quizProgress');
+            const careerResults = document.getElementById('careerResults');
+            const roadmapSection = document.getElementById('roadmapSection');
+
+            // Navigation buttons
+            const nextInterests = document.getElementById('nextInterests');
+            const prevSkills = document.getElementById('prevSkills');
+            const nextSkills = document.getElementById('nextSkills');
+            const prevEducation = document.getElementById('prevEducation');
+            const submitQuiz = document.getElementById('submitQuiz');
+
+            // User data
+            let userData = {
+                interests: null,
+                skills: [],
+                education: null
+            };
+
+            // Career data
+            const careerData = {
+                technology: [
+                    {
+                        title: "Software Developer",
+                        description: "Design, develop, and test software applications for various platforms. Software developers create the programs we use every day on computers, smartphones, and other devices.",
+                        salary: "$70,000 - $120,000",
+                        demand: "High",
+                        roadmap: {
+                            steps: [
+                                {
+                                    title: "Learn Programming Fundamentals",
+                                    content: "Start with basic programming concepts and languages like Python, JavaScript, or Java. Online platforms like Codecademy and freeCodeCamp offer excellent beginner courses."
+                                },
+                                {
+                                    title: "Choose a Specialization",
+                                    content: "Decide on a focus area like web development, mobile apps, data science, or game development. Each path requires different tools and frameworks."
+                                },
+                                {
+                                    title: "Build Projects",
+                                    content: "Create a portfolio of projects to showcase your skills. Start with simple applications and gradually increase complexity. Contribute to open-source projects on GitHub."
+                                },
+                                {
+                                    title: "Get Certified",
+                                    content: "Consider certifications like AWS Certified Developer, Google Cloud Professional, or Microsoft Certified: Azure Developer Associate to validate your skills."
+                                },
+                                {
+                                    title: "Apply for Jobs",
+                                    content: "Start with entry-level positions like Junior Developer or internships. Prepare for technical interviews by practicing algorithm problems on platforms like LeetCode."
+                                }
+                            ],
+                            resources: [
+                                {
+                                    title: "freeCodeCamp",
+                                    description: "Free coding bootcamp with certifications in various web development technologies",
+                                    link: "https://www.freecodecamp.org/"
+                                },
+                                {
+                                    title: "CS50 by Harvard",
+                                    description: "Excellent introduction to computer science that covers fundamentals",
+                                    link: "https://cs50.harvard.edu/"
+                                },
+                                {
+                                    title: "The Odin Project",
+                                    description: "Full-stack web development curriculum with hands-on projects",
+                                    link: "https://www.theodinproject.com/"
+                                },
+                                {
+                                    title: "LeetCode",
+                                    description: "Platform to practice coding interview questions",
+                                    link: "https://leetcode.com/"
+                                },
+                                {
+                                    title: "GitHub",
+                                    description: "Platform to host and share your code projects",
+                                    link: "https://github.com/"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        title: "Data Scientist",
+                        description: "Analyze and interpret complex data to help organizations make decisions. Data scientists use statistical methods, machine learning, and programming to extract insights from data.",
+                        salary: "$90,000 - $150,000",
+                        demand: "Very High",
+                        roadmap: {
+                            steps: [
+                                {
+                                    title: "Learn Statistics and Math",
+                                    content: "Develop strong foundations in statistics, linear algebra, and calculus. These are essential for understanding machine learning algorithms and data analysis techniques."
+                                },
+                                {
+                                    title: "Master Programming",
+                                    content: "Learn Python or R and libraries like Pandas, NumPy, and scikit-learn. Python is particularly popular in the data science community for its powerful data processing libraries."
+                                },
+                                {
+                                    title: "Understand Machine Learning",
+                                    content: "Study machine learning algorithms and frameworks like TensorFlow and PyTorch. Start with supervised learning before moving to more complex unsupervised and reinforcement learning."
+                                },
+                                {
+                                    title: "Work with Real Data",
+                                    content: "Participate in Kaggle competitions or analyze public datasets from sources like Google Dataset Search or government open data portals."
+                                },
+                                {
+                                    title: "Build a Portfolio",
+                                    content: "Showcase your data analysis and visualization projects. Include Jupyter notebooks with your analysis and insights to demonstrate your skills to potential employers."
+                                }
+                            ],
+                            resources: [
+                                {
+                                    title: "Kaggle",
+                                    description: "Data science competitions and learning resources",
+                                    link: "https://www.kaggle.com/"
+                                },
+                                {
+                                    title: "DataCamp",
+                                    description: "Interactive data science courses with hands-on practice",
+                                    link: "https://www.datacamp.com/"
+                                },
+                                {
+                                    title: "Towards Data Science",
+                                    description: "Medium publication with data science articles and tutorials",
+                                    link: "https://towardsdatascience.com/"
+                                },
+                                {
+                                    title: "Fast.ai",
+                                    description: "Practical deep learning courses for coders",
+                                    link: "https://www.fast.ai/"
+                                },
+                                {
+                                    title: "Google Dataset Search",
+                                    description: "Search engine for datasets across the web",
+                                    link: "https://datasetsearch.research.google.com/"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                health: [
+                    {
+                        title: "Medical Doctor",
+                        description: "Diagnose and treat illnesses, injuries, and other health conditions. Doctors examine patients, take medical histories, prescribe medications, and order diagnostic tests.",
+                        salary: "$150,000 - $300,000",
+                        demand: "High",
+                        roadmap: {
+                            steps: [
+                                {
+                                    title: "Complete Pre-Medical Education",
+                                    content: "Earn a bachelor's degree with a strong foundation in sciences (biology, chemistry, physics) and maintain a high GPA. Many students major in biology or chemistry."
+                                },
+                                {
+                                    title: "Take the MCAT",
+                                    content: "Prepare for and take the Medical College Admission Test (MCAT), a standardized exam required for medical school admission. Consider MCAT prep courses if needed."
+                                },
+                                {
+                                    title: "Attend Medical School",
+                                    content: "Complete 4 years of medical school, which includes 2 years of classroom-based education and 2 years of clinical rotations in various specialties."
+                                },
+                                {
+                                    title: "Complete Residency",
+                                    content: "After medical school, complete a residency program (3-7 years depending on specialty) to receive supervised training in your chosen field of medicine."
+                                },
+                                {
+                                    title: "Obtain Licensure and Certification",
+                                    content: "Pass the USMLE exams to become licensed to practice medicine. Consider board certification in your specialty for additional credentials."
+                                }
+                            ],
+                            resources: [
+                                {
+                                    title: "AAMC",
+                                    description: "Association of American Medical Colleges - MCAT and medical school resources",
+                                    link: "https://www.aamc.org/"
+                                },
+                                {
+                                    title: "Khan Academy Medicine",
+                                    description: "Free medical education resources and videos",
+                                    link: "https://www.khanacademy.org/science/health-and-medicine"
+                                },
+                                {
+                                    title: "USMLE Official Site",
+                                    description: "Information about the United States Medical Licensing Examination",
+                                    link: "https://www.usmle.org/"
+                                },
+                                {
+                                    title: "Medscape",
+                                    description: "Medical news and resources for healthcare professionals",
+                                    link: "https://www.medscape.com/"
+                                },
+                                {
+                                    title: "NEJM",
+                                    description: "New England Journal of Medicine - leading medical journal",
+                                    link: "https://www.nejm.org/"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        title: "Registered Nurse",
+                        description: "Provide and coordinate patient care, educate patients about health conditions, and offer advice and emotional support to patients and their families.",
+                        salary: "$60,000 - $90,000",
+                        demand: "Very High",
+                        roadmap: {
+                            steps: [
+                                {
+                                    title: "Complete Nursing Education",
+                                    content: "Earn an Associate Degree in Nursing (ADN) or Bachelor of Science in Nursing (BSN). BSN programs typically offer more career opportunities and are preferred by many employers."
+                                },
+                                {
+                                    title: "Pass the NCLEX Exam",
+                                    content: "Prepare for and pass the National Council Licensure Examination (NCLEX-RN) to become licensed as a registered nurse. Consider NCLEX review courses if needed."
+                                },
+                                {
+                                    title: "Obtain State License",
+                                    content: "Apply for licensure in your state after passing the NCLEX. Requirements vary by state, so check with your state's board of nursing."
+                                },
+                                {
+                                    title: "Gain Clinical Experience",
+                                    content: "Work in hospitals, clinics, or other healthcare settings to gain practical experience. Consider starting in medical-surgical nursing to build broad skills."
+                                },
+                                {
+                                    title: "Consider Specialization",
+                                    content: "After gaining experience, consider specializing in areas like pediatrics, critical care, or oncology. Many specialties offer certification programs."
+                                }
+                            ],
+                            resources: [
+                                {
+                                    title: "American Nurses Association",
+                                    description: "Professional organization for nurses with resources and career information",
+                                    link: "https://www.nursingworld.org/"
+                                },
+                                {
+                                    title: "NCLEX Review Courses",
+                                    description: "Various providers offer exam preparation courses for the NCLEX",
+                                    link: "https://www.uclaextension.edu/nursing/nursing-ce/course/nclex-rn-exam-prep-nursxc-815"
+                                },
+                                {
+                                    title: "Nurse.org",
+                                    description: "Career resources and information for nurses",
+                                    link: "https://nurse.org/"
+                                },
+                                {
+                                    title: "AllNurses",
+                                    description: "Online community for nursing students and professionals",
+                                    link: "https://allnurses.com/"
+                                },
+                                {
+                                    title: "Johnson & Johnson Nursing",
+                                    description: "Resources and information about nursing careers",
+                                    link: "https://nursing.jnj.com/"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                business: [
+                    {
+                        title: "Financial Analyst",
+                        description: "Guide businesses and individuals in investment decisions by assessing the performance of stocks, bonds, and other types of investments.",
+                        salary: "$60,000 - $110,000",
+                        demand: "High",
+                        roadmap: {
+                            steps: [
+                                {
+                                    title: "Earn a Finance Degree",
+                                    content: "Complete a bachelor's degree in finance, economics, accounting, or a related field. Coursework should include financial analysis, accounting, and statistics."
+                                },
+                                {
+                                    title: "Develop Technical Skills",
+                                    content: "Learn Excel, financial modeling, and data analysis tools. Familiarize yourself with financial software like Bloomberg Terminal and programming languages like Python or R."
+                                },
+                                {
+                                    title: "Get an Internship",
+                                    content: "Gain practical experience through internships in banking, corporate finance, or investment firms. This provides valuable experience and networking opportunities."
+                                },
+                                {
+                                    title: "Consider Certification",
+                                    content: "Pursue professional certifications like the Chartered Financial Analyst (CFA) or Financial Modeling & Valuation Analyst (FMVA) to enhance your credentials."
+                                },
+                                {
+                                    title: "Build a Network",
+                                    content: "Attend industry events, join professional organizations, and connect with professionals in the field. Networking can lead to job opportunities and career advancement."
+                                }
+                            ],
+                            resources: [
+                                {
+                                    title: "CFA Institute",
+                                    description: "Information about the Chartered Financial Analyst program",
+                                    link: "https://www.cfainstitute.org/"
+                                },
+                                {
+                                    title: "Wall Street Prep",
+                                    description: "Financial modeling training and resources",
+                                    link: "https://www.wallstreetprep.com/"
+                                },
+                                {
+                                    title: "Investopedia",
+                                    description: "Financial education platform with tutorials and articles",
+                                    link: "https://www.investopedia.com/"
+                                },
+                                {
+                                    title: "Bloomberg Terminal",
+                                    description: "Professional financial data and analytics platform",
+                                    link: "https://www.bloomberg.com/professional/solution/bloomberg-terminal/"
+                                },
+                                {
+                                    title: "Corporate Finance Institute",
+                                    description: "Online financial modeling and valuation courses",
+                                    link: "https://corporatefinanceinstitute.com/"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        title: "Marketing Manager",
+                        description: "Plan and execute marketing campaigns to promote products and services. Analyze market trends, identify target audiences, and develop strategies to maximize profits.",
+                        salary: "$70,000 - $120,000",
+                        demand: "High",
+                        roadmap: {
+                            steps: [
+                                {
+                                    title: "Earn a Marketing Degree",
+                                    content: "Complete a bachelor's degree in marketing, business administration, or communications. Coursework should include market research, consumer behavior, and digital marketing."
+                                },
+                                {
+                                    title: "Develop Digital Skills",
+                                    content: "Learn SEO, social media marketing, content marketing, and analytics tools like Google Analytics. Digital marketing skills are essential in today's market."
+                                },
+                                {
+                                    title: "Gain Experience",
+                                    content: "Start with internships or entry-level marketing roles. Look for opportunities in digital marketing, content creation, or market research to build your skills."
+                                },
+                                {
+                                    title: "Build a Portfolio",
+                                    content: "Document successful campaigns and strategies you've worked on. Include metrics that demonstrate your impact (e.g., increased engagement, conversion rates)."
+                                },
+                                {
+                                    title: "Stay Current",
+                                    content: "Continuously learn about new marketing trends and technologies. Attend industry conferences, take online courses, and follow marketing thought leaders."
+                                }
+                            ],
+                            resources: [
+                                {
+                                    title: "Google Digital Garage",
+                                    description: "Free digital marketing courses with certifications",
+                                    link: "https://learndigital.withgoogle.com/digitalgarage/"
+                                },
+                                {
+                                    title: "HubSpot Academy",
+                                    description: "Free inbound marketing and sales training",
+                                    link: "https://academy.hubspot.com/"
+                                },
+                                {
+                                    title: "American Marketing Association",
+                                    description: "Professional marketing organization with resources",
+                                    link: "https://www.ama.org/"
+                                },
+                                {
+                                    title: "Moz",
+                                    description: "SEO learning resources and tools",
+                                    link: "https://moz.com/learn/seo"
+                                },
+                                {
+                                    title: "Social Media Examiner",
+                                    description: "Social media marketing news and tips",
+                                    link: "https://www.socialmediaexaminer.com/"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                arts: [
+                    {
+                        title: "Graphic Designer",
+                        description: "Create visual concepts to communicate ideas that inspire, inform, and captivate consumers. Develop the overall layout and production design for advertisements, brochures, magazines, and corporate reports.",
+                        salary: "$45,000 - $85,000",
+                        demand: "Moderate",
+                        roadmap: {
+                            steps: [
+                                {
+                                    title: "Develop Artistic Skills",
+                                    content: "Learn design principles, typography, color theory, and composition. Practice sketching and conceptualizing ideas visually."
+                                },
+                                {
+                                    title: "Master Design Software",
+                                    content: "Become proficient in Adobe Creative Suite (Photoshop, Illustrator, InDesign) and other relevant tools like Sketch or Figma for digital design."
+                                },
+                                {
+                                    title: "Build a Portfolio",
+                                    content: "Create diverse design projects to showcase your skills. Include personal projects, freelance work, and any professional projects you've completed."
+                                },
+                                {
+                                    title: "Get Education or Training",
+                                    content: "Consider a design degree or online courses/certificates. While formal education isn't always required, it can help develop skills and make you more competitive."
+                                },
+                                {
+                                    title: "Gain Experience",
+                                    content: "Start with freelance work, internships, or entry-level positions. Look for opportunities at design agencies, marketing departments, or media companies."
+                                }
+                            ],
+                            resources: [
+                                {
+                                    title: "Behance",
+                                    description: "Platform to showcase and discover creative work",
+                                    link: "https://www.behance.net/"
+                                },
+                                {
+                                    title: "Adobe Creative Cloud",
+                                    description: "Industry-standard design software suite",
+                                    link: "https://www.adobe.com/creativecloud.html"
+                                },
+                                {
+                                    title: "Skillshare",
+                                    description: "Online classes for creative skills including design",
+                                    link: "https://www.skillshare.com/"
+                                },
+                                {
+                                    title: "AIGA",
+                                    description: "Professional association for design with resources",
+                                    link: "https://www.aiga.org/"
+                                },
+                                {
+                                    title: "Dribbble",
+                                    description: "Community for designers to share work and find jobs",
+                                    link: "https://dribbble.com/"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        title: "Content Writer",
+                        description: "Create written material for websites, blogs, marketing materials, and publications. Research topics, write clear and compelling copy, and edit content for clarity and accuracy.",
+                        salary: "$40,000 - $80,000",
+                        demand: "High",
+                        roadmap: {
+                            steps: [
+                                {
+                                    title: "Develop Writing Skills",
+                                    content: "Practice writing regularly and study grammar, style, and storytelling techniques. Read widely to understand different writing styles and voices."
+                                },
+                                {
+                                    title: "Choose a Niche",
+                                    content: "Specialize in areas like tech writing, health writing, finance writing, or marketing copywriting. Specialization can make you more valuable to specific clients."
+                                },
+                                {
+                                    title: "Build a Portfolio",
+                                    content: "Create writing samples and publish work (even self-published). Start a blog, contribute to online publications, or do pro bono work to build your portfolio."
+                                },
+                                {
+                                    title: "Learn SEO Basics",
+                                    content: "Understand how to write for search engines. Learn about keyword research, on-page optimization, and how to create content that ranks well."
+                                },
+                                {
+                                    title: "Find Clients or Jobs",
+                                    content: "Start with freelance platforms or content agencies. As you gain experience, you can pursue higher-paying clients or full-time positions."
+                                }
+                            ],
+                            resources: [
+                                {
+                                    title: "Grammarly",
+                                    description: "Writing assistant tool to improve your writing",
+                                    link: "https://www.grammarly.com/"
+                                },
+                                {
+                                    title: "Copyblogger",
+                                    description: "Content marketing education and resources",
+                                    link: "https://copyblogger.com/"
+                                },
+                                {
+                                    title: "ProBlogger",
+                                    description: "Blogging and writing job board",
+                                    link: "https://problogger.com/"
+                                },
+                                {
+                                    title: "HubSpot Blog Ideas Generator",
+                                    description: "Tool to generate content ideas",
+                                    link: "https://www.hubspot.com/blog-topic-generator"
+                                },
+                                {
+                                    title: "The Write Life",
+                                    description: "Resources and advice for writers",
+                                    link: "https://thewritelife.com/"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            };
+
+            // Event Listeners
+            quizLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                showQuizSection();
+            });
+
+            resultsLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                showResultsSection();
+            });
+
+            // Quiz option selection
+            quizOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const step = this.closest('.quiz-step');
+                    const options = step.querySelectorAll('.quiz-option');
+                    
+                    options.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    // Store the selected value
+                    const stepId = step.id;
+                    const value = this.getAttribute('data-value');
+                    
+                    if (stepId === 'interestsStep') {
+                        userData.interests = value;
+                    } else if (stepId === 'skillsStep') {
+                        if (!userData.skills.includes(value)) {
+                            userData.skills.push(value);
+                        }
+                    } else if (stepId === 'educationStep') {
+                        userData.education = value;
+                    }
+                });
+            });
+
+            // Navigation between quiz steps
+            nextInterests.addEventListener('click', function() {
+                if (userData.interests) {
+                    showStep('skillsStep');
+                    updateProgress(50);
+                } else {
+                    alert('Please select your interests before proceeding.');
+                }
+            });
+
+            prevSkills.addEventListener('click', function() {
+                showStep('interestsStep');
+                updateProgress(25);
+            });
+
+            nextSkills.addEventListener('click', function() {
+                if (userData.skills.length > 0) {
+                    showStep('educationStep');
+                    updateProgress(75);
+                } else {
+                    alert('Please select at least one skill before proceeding.');
+                }
+            });
+
+            prevEducation.addEventListener('click', function() {
+                showStep('skillsStep');
+                updateProgress(50);
+            });
+
+            submitQuiz.addEventListener('click', function() {
+                if (userData.education) {
+                    showResults();
+                    showResultsSection();
+                    updateProgress(100);
+                } else {
+                    alert('Please select your education level before submitting.');
+                }
+            });
+
+            // Functions
+            function showStep(stepId) {
+                quizSteps.forEach(step => step.classList.remove('active'));
+                document.getElementById(stepId).classList.add('active');
+            }
+
+            function updateProgress(percentage) {
+                progressBar.style.width = percentage + '%';
+            }
+
+            function showQuizSection() {
+                quizSection.style.display = 'block';
+                resultsSection.style.display = 'none';
+                quizLink.classList.add('active');
+                resultsLink.classList.remove('active');
+            }
+
+            function showResultsSection() {
+                if (careerResults.innerHTML === '') {
+                    showResults();
+                }
+                quizSection.style.display = 'none';
+                resultsSection.style.display = 'block';
+                quizLink.classList.remove('active');
+                resultsLink.classList.add('active');
+            }
+
+            function showResults() {
+                // Clear previous results
+                careerResults.innerHTML = '';
+                roadmapSection.innerHTML = '';
+                roadmapSection.style.display = 'none';
+
+                // Get recommended careers based on interests
+                const recommendedCareers = careerData[userData.interests] || [];
+
+                if (recommendedCareers.length === 0) {
+                    careerResults.innerHTML = '<div class="col-12"><div class="alert alert-info">No career recommendations found based on your selections.</div></div>';
+                    return;
+                }
+
+                // Display career options
+                recommendedCareers.forEach((career, index) => {
+                    const col = document.createElement('div');
+                    col.className = 'col-md-6';
+
+                    const card = document.createElement('div');
+                    card.className = 'career-card';
+                    card.dataset.careerIndex = index;
+
+                    card.innerHTML = `
+                        <div class="career-header">
+                            <h3>${career.title}</h3>
+                            <p>${career.salary} • ${career.demand} Demand</p>
+                        </div>
+                        <div class="career-body">
+                            <p>${career.description}</p>
+                            <button class="btn btn-roadmap view-roadmap" data-career-index="${index}">
+                                View Roadmap <i class="fas fa-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    `;
+
+                    col.appendChild(card);
+                    careerResults.appendChild(col);
+                });
+
+                // Add event listeners to roadmap buttons
+                document.querySelectorAll('.view-roadmap').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = this.getAttribute('data-career-index');
+                        showRoadmap(recommendedCareers[index]);
+                    });
+                });
+            }
+
+            function showRoadmap(career) {
+                roadmapSection.innerHTML = '';
+                roadmapSection.style.display = 'block';
+
+                // Create roadmap header
+                const header = document.createElement('div');
+                header.className = 'roadmap-header';
+                header.innerHTML = `
+                    <h2>${career.title} Career Roadmap</h2>
+                    <p>Follow these steps to pursue a career in ${career.title}</p>
+                `;
+                roadmapSection.appendChild(header);
+
+                // Create roadmap steps
+                const stepsContainer = document.createElement('div');
+                career.roadmap.steps.forEach((step, index) => {
+                    const stepElement = document.createElement('div');
+                    stepElement.className = 'roadmap-step';
+
+                    stepElement.innerHTML = `
+                        <div class="step-number">${index + 1}</div>
+                        <div class="step-content">
+                            <h4>${step.title}</h4>
+                            <p>${step.content}</p>
+                        </div>
+                    `;
+
+                    stepsContainer.appendChild(stepElement);
+                });
+                roadmapSection.appendChild(stepsContainer);
+
+                // Create resources section
+                if (career.roadmap.resources && career.roadmap.resources.length > 0) {
+                    const resourcesHeader = document.createElement('h3');
+                    resourcesHeader.className = 'mt-5 mb-4';
+                    resourcesHeader.textContent = 'Recommended Resources';
+                    roadmapSection.appendChild(resourcesHeader);
+
+                    const resourcesContainer = document.createElement('div');
+                    resourcesContainer.className = 'resources-container';
+
+                    career.roadmap.resources.forEach(resource => {
+                        const resourceElement = document.createElement('div');
+                        resourceElement.className = 'resource-item';
+
+                        resourceElement.innerHTML = `
+                            <div class="resource-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="resource-content">
+                                <h5>${resource.title}</h5>
+                                <p>${resource.description}</p>
+                                <a href="${resource.link}" class="resource-link" target="_blank">Visit Resource <i class="fas fa-external-link-alt ms-2"></i></a>
+                            </div>
+                        `;
+
+                        resourcesContainer.appendChild(resourceElement);
+                    });
+
+                    roadmapSection.appendChild(resourcesContainer);
+                }
+
+                // Scroll to roadmap section
+                roadmapSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
